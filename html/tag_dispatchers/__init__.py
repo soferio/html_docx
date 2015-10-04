@@ -56,3 +56,18 @@ def replace_whitespaces(text):
         text = re.sub(' +', ' ', text)
 
     return text if text else ''
+
+
+# From: http://stackoverflow.com/questions/3170055/test-if-lists-share-any-items-in-python
+def lists_overlap(a, b):
+    sb = set(b)
+    return any(el in sb for el in a)
+
+
+# Get parental tags (so that bold+underline+italics is dealt with correctly)
+def get_parental_tags(temp_element):
+    temp_array = []
+    while temp_element.getparent():
+        temp_element = temp_element.getparent()
+        temp_array.append(temp_element.tag)
+    return temp_array

@@ -5,15 +5,17 @@ Returns corresponding objects to call for creating
 the different docx elements.
 """
 
-from mindboard.helpers.docx.html.tag_dispatchers.blockquote import BlockquoteDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.code import CodeDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.emphasis import EmphasisDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.heading import HeadingDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.linebreak import LineBreakDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.link import LinkDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.list_item import ListItemDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.paragraph import ParagraphDispatcher
-from mindboard.helpers.docx.html.tag_dispatchers.strong import StrongDispatcher
+from tag_dispatchers.blockquote import BlockquoteDispatcher
+from tag_dispatchers.code import CodeDispatcher
+from tag_dispatchers.emphasis import EmphasisDispatcher
+from tag_dispatchers.heading import HeadingDispatcher
+from tag_dispatchers.linebreak import LineBreakDispatcher
+from tag_dispatchers.link import LinkDispatcher
+from tag_dispatchers.list_item import ListItemDispatcher
+from tag_dispatchers.paragraph import ParagraphDispatcher
+from tag_dispatchers.strong import StrongDispatcher
+from tag_dispatchers.underline import UnderlineDispatcher
+from tag_dispatchers.div import DivDispatcher
 
 
 def get_tag_dispatcher(html_tag):
@@ -31,8 +33,12 @@ _dispatch_html = dict(
     a=LinkDispatcher(),
     li=ListItemDispatcher(),
     br=LineBreakDispatcher(),
+    div=DivDispatcher(),
     code=CodeDispatcher(),
     strong=StrongDispatcher(),
+    b=StrongDispatcher(),
+    i=EmphasisDispatcher(),
+    u=UnderlineDispatcher(),
     em=EmphasisDispatcher(),
     h1=heading_dispatcher,
     h2=heading_dispatcher,

@@ -1,5 +1,5 @@
 # encoding: utf-8
-from mindboard.helpers.docx.html.tag_dispatchers import TagDispatcher
+from ..tag_dispatchers import TagDispatcher
 
 
 class HeadingDispatcher(TagDispatcher):

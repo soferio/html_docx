@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # map of HTML list tags and their docx styles
-from mindboard.helpers.docx.html.tag_dispatchers import TagDispatcher, replace_whitespaces
+from ..tag_dispatchers import TagDispatcher, replace_whitespaces
 
 _list_style = dict(
     ol='ListNumber',

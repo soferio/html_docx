@@ -1,6 +1,6 @@
 # encoding: utf-8
 from docx.enum.text import WD_BREAK
-from mindboard.helpers.docx.html.tag_dispatchers import TagDispatcher, replace_whitespaces
+from ..tag_dispatchers import TagDispatcher, replace_whitespaces
 
 
 class LineBreakDispatcher(TagDispatcher):

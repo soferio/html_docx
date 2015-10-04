@@ -1,5 +1,5 @@
 # encoding: utf-8
-from mindboard.helpers.docx.html.tag_dispatchers import TagDispatcher, replace_whitespaces
+from ..tag_dispatchers import TagDispatcher, replace_whitespaces, lists_overlap, get_parental_tags
 
 
 class StrongDispatcher(TagDispatcher):
@@ -23,6 +23,8 @@ class StrongDispatcher(TagDispatcher):
         text = replace_whitespaces(text)
         run = container.add_run(text=text)
         run.bold = True
-        if element.getparent().tag == 'em':
+        if lists_overlap(get_parental_tags(element), ('em', 'i')):
             run.italic = True
+        if lists_overlap(get_parental_tags(element), ('u',)):
+            run.underline = True
         return container

@@ -2,24 +2,24 @@
 from ..tag_dispatchers import TagDispatcher, replace_whitespaces
 
 
-class ParagraphDispatcher(TagDispatcher):
+class DivDispatcher(TagDispatcher):
     def __init__(self):
-        super(ParagraphDispatcher, self).__init__()
+        super(DivDispatcher, self).__init__()
 
     @classmethod
     def append_head(cls, element, container):
         paragraph = cls.get_new_paragraph(container)
-        return cls._append_paragraph(element.text, element, paragraph)
+        return cls._append_div(element.text, element, paragraph)
 
     @classmethod
     def append_tail(cls, element, container):
         paragraph = cls.get_current_paragraph(container)
-        return cls._append_paragraph(element.tail, element, paragraph)
+        return cls._append_div(element.tail, element, paragraph)
 
     @classmethod
-    def _append_paragraph(cls, text, element, container):
+    def _append_div(cls, text, element, container):
         """
-        <p> creates a paragraph element inside a docx container element.
+        <div> does nothing.
         """
         text = replace_whitespaces(text)
         if not text:
