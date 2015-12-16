@@ -38,6 +38,8 @@ class DocxBuilder(object):
         for child in children:
             self._append_docx_elements(child, new_container)
 
-        dispatcher = get_tag_dispatcher(html_element.getparent().tag)
+        parent = html_element.getparent()
+        if parent is not None:
+            dispatcher = get_tag_dispatcher(parent.tag)
         if html_element.tail and dispatcher:
             dispatcher.append_tail(html_element, container)
